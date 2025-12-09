@@ -1,0 +1,8 @@
+class Solution(object):
+    def minCostClimbingStairs(self, cost):
+        prev, curr = 0, 0   # cost to reach step -1 and step 0
+
+        for c in cost:
+            prev, curr = curr, min(prev, curr) + c
+
+        return min(prev, curr)
