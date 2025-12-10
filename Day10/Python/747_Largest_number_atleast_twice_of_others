@@ -1,0 +1,15 @@
+class Solution(object):
+    def dominantIndex(self, nums):
+
+        if len(nums) == 1:
+            return 0
+    
+    # find largest and second largest
+        max1 = max(nums)
+        idx = nums.index(max1)
+    
+        temp = nums[:]
+        temp.remove(max1)
+        max2 = max(temp)
+    
+        return idx if max1 >= 2 * max2 else -1
