@@ -1,25 +1,14 @@
 class Solution(object):
-    def sortedSquares(self, nums):
+    def arrayNesting(self, nums):
+        max_len = 0
 
-        n = len(nums)
-        result = [0] * n
-        l, r = 0, n - 1
-        pos = n - 1
+        for i in range(len(nums)):
+            count = 0
+            while nums[i] != -1:
+                nxt = nums[i]
+                nums[i] = -1
+                i = nxt
+                count += 1
+            max_len = max(max_len, count)
 
-        while l <= r:
-            if abs(nums[l]) > abs(nums[r]):
-                result[pos] = nums[l] * nums[l]
-                l += 1
-            else:
-                result[pos] = nums[r] * nums[r]
-                r -= 1
-            pos -= 1
-
-        return result
-
-
-
-
-
-
-        
+        return max_len
